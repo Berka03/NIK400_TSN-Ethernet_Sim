@@ -1,0 +1,3634 @@
+file 307524 1768221497                                          
+version 3
+run StandardEthernet-0-20260112-12:37:58-66963
+attr configname StandardEthernet
+attr datetime 20260112-12:37:58
+attr datetimef 20260112-123758
+attr experiment StandardEthernet
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network SimpleEthernet
+attr processid 66963
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config image-path ../inet4.5/images
+config description "Standard Best-Effort traffic without gating"
+config network SimpleEthernet
+config sim-time-limit 30s
+config **.eth[*].bitrate 100Mbps
+config **.hasGlobalArp true
+config **.crcMode "\"declared\""
+config *.configurator.assignAddresses true
+config *.configurator.addStaticRoutes true
+config *.configurator.config "xml(\"<config>     <interface hosts='host1' address='10.0.0.1' netmask='255.255.255.0'/>     <interface hosts='host2' address='10.0.0.2' netmask='255.255.255.0'/> </config>\")"
+config *.host1.numUdpApps 1
+config *.host1.udpApp[0].typename UdpBasicApp
+config *.host1.udpApp[0].destAddresses "\"10.0.0.2\""
+config *.host1.udpApp[0].destPort 1000
+config *.host1.udpApp[0].localPort 1000
+config *.host1.udpApp[0].messageLength 100B
+config *.host1.udpApp[0].sendInterval 10ms
+config *.host1.udpApp[0].startTime 0.2s
+config *.host1.udpApp[0].stopTime 15.0s
+config *.host2.numUdpApps 1
+config *.host2.udpApp[0].typename UdpSink
+config *.host2.udpApp[0].localAddress "\"10.0.0.2\""
+config *.host2.udpApp[0].localPort 1000
+config *.visualizer.interfaceTableVisualizer.displayInterfaceTables true
+config *.visualizer.canvasVisualizer.infoVisualizer.displayInfos true
+
+vector 0 SimpleEthernet.host1.ethernet.macHeaderInserter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 1 SimpleEthernet.host1.ethernet.macHeaderInserter incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming data rate"
+attr unit bps
+vector 2 SimpleEthernet.host1.ethernet.macHeaderInserter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 3 SimpleEthernet.host1.ethernet.macHeaderInserter outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing data rate"
+attr unit bps
+vector 4 SimpleEthernet.host1.ethernet.macHeaderInserter flowIncomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming packet lengths"
+attr unit b
+vector 5 SimpleEthernet.host1.ethernet.macHeaderInserter flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 6 SimpleEthernet.host1.ethernet.macHeaderInserter flowOutgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing packet lengths"
+attr unit b
+vector 7 SimpleEthernet.host1.ethernet.macHeaderInserter flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 8 SimpleEthernet.host1.ethernet.paddingInserter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 9 SimpleEthernet.host1.ethernet.paddingInserter incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming data rate"
+attr unit bps
+vector 10 SimpleEthernet.host1.ethernet.paddingInserter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 11 SimpleEthernet.host1.ethernet.paddingInserter outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing data rate"
+attr unit bps
+vector 12 SimpleEthernet.host1.ethernet.paddingInserter flowIncomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming packet lengths"
+attr unit b
+vector 13 SimpleEthernet.host1.ethernet.paddingInserter flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 14 SimpleEthernet.host1.ethernet.paddingInserter flowOutgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing packet lengths"
+attr unit b
+vector 15 SimpleEthernet.host1.ethernet.paddingInserter flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 16 SimpleEthernet.host1.ethernet.fcsInserter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 17 SimpleEthernet.host1.ethernet.fcsInserter incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming data rate"
+attr unit bps
+vector 18 SimpleEthernet.host1.ethernet.fcsInserter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 19 SimpleEthernet.host1.ethernet.fcsInserter outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing data rate"
+attr unit bps
+vector 20 SimpleEthernet.host1.ethernet.fcsInserter flowIncomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming packet lengths"
+attr unit b
+vector 21 SimpleEthernet.host1.ethernet.fcsInserter flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 22 SimpleEthernet.host1.ethernet.fcsInserter flowOutgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing packet lengths"
+attr unit b
+vector 23 SimpleEthernet.host1.ethernet.fcsInserter flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 24 SimpleEthernet.host1.ethernet.macHeaderChecker incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 25 SimpleEthernet.host1.ethernet.macHeaderChecker incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming data rate"
+attr unit bps
+vector 26 SimpleEthernet.host1.ethernet.macHeaderChecker outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 27 SimpleEthernet.host1.ethernet.macHeaderChecker outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing data rate"
+attr unit bps
+vector 28 SimpleEthernet.host1.ethernet.macHeaderChecker droppedPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetDropped)
+attr title "dropped packet lengths"
+attr unit b
+vector 29 SimpleEthernet.host1.ethernet.macHeaderChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 30 SimpleEthernet.host1.ethernet.macHeaderChecker flowIncomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming packet lengths"
+attr unit b
+vector 31 SimpleEthernet.host1.ethernet.macHeaderChecker flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 32 SimpleEthernet.host1.ethernet.macHeaderChecker flowOutgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing packet lengths"
+attr unit b
+vector 33 SimpleEthernet.host1.ethernet.macHeaderChecker flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 34 SimpleEthernet.host1.ethernet.macHeaderChecker flowDroppedPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(demuxFlow(packetDropped))
+attr title "flow specific dropped packet lengths"
+attr unit b
+vector 35 SimpleEthernet.host1.ethernet.macHeaderChecker flowDroppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(demuxFlow(packetDropped))
+attr title "flow specific dropped data rate"
+attr unit bps
+vector 36 SimpleEthernet.host1.ethernet.fcsChecker incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 37 SimpleEthernet.host1.ethernet.fcsChecker incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming data rate"
+attr unit bps
+vector 38 SimpleEthernet.host1.ethernet.fcsChecker outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 39 SimpleEthernet.host1.ethernet.fcsChecker outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing data rate"
+attr unit bps
+vector 40 SimpleEthernet.host1.ethernet.fcsChecker droppedPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetDropped)
+attr title "dropped packet lengths"
+attr unit b
+vector 41 SimpleEthernet.host1.ethernet.fcsChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 42 SimpleEthernet.host1.ethernet.fcsChecker flowIncomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming packet lengths"
+attr unit b
+vector 43 SimpleEthernet.host1.ethernet.fcsChecker flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 44 SimpleEthernet.host1.ethernet.fcsChecker flowOutgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing packet lengths"
+attr unit b
+vector 45 SimpleEthernet.host1.ethernet.fcsChecker flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 46 SimpleEthernet.host1.ethernet.fcsChecker flowDroppedPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(demuxFlow(packetDropped))
+attr title "flow specific dropped packet lengths"
+attr unit b
+vector 47 SimpleEthernet.host1.ethernet.fcsChecker flowDroppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(demuxFlow(packetDropped))
+attr title "flow specific dropped data rate"
+attr unit bps
+vector 48 SimpleEthernet.host1.lo[0].lo rcvdPkFromHl:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, packetBytes"
+vector 49 SimpleEthernet.host1.lo[0].lo passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+vector 50 SimpleEthernet.host1.lo[0] packetDropInterfaceDown:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drops: interface down, packetBytes"
+vector 51 SimpleEthernet.host1.lo[0] packetDropNoCarrier:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsNoCarrier(packetDropped)
+attr title "packet drops: no carrier, packetBytes"
+vector 52 SimpleEthernet.host1.eth[0].macLayer.queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 53 SimpleEthernet.host1.eth[0].macLayer.queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 54 SimpleEthernet.host1.eth[0].macLayer.queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 55 SimpleEthernet.host1.eth[0].macLayer.queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 56 SimpleEthernet.host1.eth[0].macLayer.queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 57 SimpleEthernet.host1.eth[0].macLayer.queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 58 SimpleEthernet.host1.eth[0].macLayer.queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 59 SimpleEthernet.host1.eth[0].macLayer.queue droppedPacketLengthsQueueOverflow:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetDropReasonIsQueueOverflow(packetDropped))
+attr title "dropped packet lengths: queue overflow"
+attr unit b
+vector 60 SimpleEthernet.host1.eth[0].macLayer.queue flowQueueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(demuxFlow(packetPulled))
+attr title "flow queueing times"
+attr unit s
+vector 61 SimpleEthernet.host1.eth[0].macLayer.queue flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(flowPacketLength(demuxFlow(packetPushStarted)))
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 62 SimpleEthernet.host1.eth[0].macLayer.queue flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(flowPacketLength(demuxFlow(packetPulled)))
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 63 SimpleEthernet.host1.eth[0].macLayer.server incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "incoming packet lengths"
+attr unit b
+vector 64 SimpleEthernet.host1.eth[0].macLayer.server incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "incoming datarate"
+attr unit bps
+vector 65 SimpleEthernet.host1.eth[0].macLayer.server outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushed)
+attr title "outgoing packet lengths"
+attr unit b
+vector 66 SimpleEthernet.host1.eth[0].macLayer.server outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushed)
+attr title "outgoing datarate"
+attr unit bps
+vector 67 SimpleEthernet.host1.eth[0].macLayer.outboundEmitter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 68 SimpleEthernet.host1.eth[0].macLayer.outboundEmitter incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming data rate"
+attr unit bps
+vector 69 SimpleEthernet.host1.eth[0].macLayer.outboundEmitter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 70 SimpleEthernet.host1.eth[0].macLayer.outboundEmitter outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing data rate"
+attr unit bps
+vector 71 SimpleEthernet.host1.eth[0].macLayer.outboundEmitter flowIncomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming packet lengths"
+attr unit b
+vector 72 SimpleEthernet.host1.eth[0].macLayer.outboundEmitter flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 73 SimpleEthernet.host1.eth[0].macLayer.outboundEmitter flowOutgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing packet lengths"
+attr unit b
+vector 74 SimpleEthernet.host1.eth[0].macLayer.outboundEmitter flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 75 SimpleEthernet.host1.eth[0].macLayer.fcsChecker incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 76 SimpleEthernet.host1.eth[0].macLayer.fcsChecker incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming data rate"
+attr unit bps
+vector 77 SimpleEthernet.host1.eth[0].macLayer.fcsChecker outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 78 SimpleEthernet.host1.eth[0].macLayer.fcsChecker outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing data rate"
+attr unit bps
+vector 79 SimpleEthernet.host1.eth[0].macLayer.fcsChecker droppedPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetDropped)
+attr title "dropped packet lengths"
+attr unit b
+vector 80 SimpleEthernet.host1.eth[0].macLayer.fcsChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 81 SimpleEthernet.host1.eth[0].macLayer.fcsChecker flowIncomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming packet lengths"
+attr unit b
+vector 82 SimpleEthernet.host1.eth[0].macLayer.fcsChecker flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 83 SimpleEthernet.host1.eth[0].macLayer.fcsChecker flowOutgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing packet lengths"
+attr unit b
+vector 84 SimpleEthernet.host1.eth[0].macLayer.fcsChecker flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 85 SimpleEthernet.host1.eth[0].macLayer.fcsChecker flowDroppedPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(demuxFlow(packetDropped))
+attr title "flow specific dropped packet lengths"
+attr unit b
+vector 86 SimpleEthernet.host1.eth[0].macLayer.fcsChecker flowDroppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(demuxFlow(packetDropped))
+attr title "flow specific dropped data rate"
+attr unit bps
+vector 87 SimpleEthernet.host1.eth[0].macLayer.inboundEmitter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 88 SimpleEthernet.host1.eth[0].macLayer.inboundEmitter incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming data rate"
+attr unit bps
+vector 89 SimpleEthernet.host1.eth[0].macLayer.inboundEmitter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 90 SimpleEthernet.host1.eth[0].macLayer.inboundEmitter outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing data rate"
+attr unit bps
+vector 91 SimpleEthernet.host1.eth[0].macLayer.inboundEmitter flowIncomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming packet lengths"
+attr unit b
+vector 92 SimpleEthernet.host1.eth[0].macLayer.inboundEmitter flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 93 SimpleEthernet.host1.eth[0].macLayer.inboundEmitter flowOutgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing packet lengths"
+attr unit b
+vector 94 SimpleEthernet.host1.eth[0].macLayer.inboundEmitter flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 95 SimpleEthernet.host1.eth[0].phyLayer.phyHeaderInserter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 96 SimpleEthernet.host1.eth[0].phyLayer.phyHeaderInserter incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming data rate"
+attr unit bps
+vector 97 SimpleEthernet.host1.eth[0].phyLayer.phyHeaderInserter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 98 SimpleEthernet.host1.eth[0].phyLayer.phyHeaderInserter outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing data rate"
+attr unit bps
+vector 99 SimpleEthernet.host1.eth[0].phyLayer.phyHeaderInserter flowIncomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming packet lengths"
+attr unit b
+vector 100 SimpleEthernet.host1.eth[0].phyLayer.phyHeaderInserter flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 101 SimpleEthernet.host1.eth[0].phyLayer.phyHeaderInserter flowOutgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing packet lengths"
+attr unit b
+vector 102 SimpleEthernet.host1.eth[0].phyLayer.phyHeaderInserter flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 103 SimpleEthernet.host1.eth[0].phyLayer.interFrameGapInserter interpacketGap:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(interpacketGapStarted) - count(interpacketGapEnded)"
+attr title "interpacket gap state"
+attr type int
+vector 104 SimpleEthernet.host1.eth[0].phyLayer.outboundEmitter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 105 SimpleEthernet.host1.eth[0].phyLayer.outboundEmitter incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming data rate"
+attr unit bps
+vector 106 SimpleEthernet.host1.eth[0].phyLayer.outboundEmitter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 107 SimpleEthernet.host1.eth[0].phyLayer.outboundEmitter outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing data rate"
+attr unit bps
+vector 108 SimpleEthernet.host1.eth[0].phyLayer.outboundEmitter flowIncomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming packet lengths"
+attr unit b
+vector 109 SimpleEthernet.host1.eth[0].phyLayer.outboundEmitter flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 110 SimpleEthernet.host1.eth[0].phyLayer.outboundEmitter flowOutgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing packet lengths"
+attr unit b
+vector 111 SimpleEthernet.host1.eth[0].phyLayer.outboundEmitter flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 112 SimpleEthernet.host1.eth[0].phyLayer.transmitter transmitting:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(transmissionStarted) - count(transmissionEnded)"
+attr title "transmitting state"
+attr type int
+vector 113 SimpleEthernet.host1.eth[0].phyLayer.transmitter throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(transmissionEnded)
+attr title throughput
+attr unit bps
+vector 114 SimpleEthernet.host1.eth[0].phyLayer.transmitter utilization:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "100 * utilization(count(transmissionStarted) - count(transmissionEnded))"
+attr title utilization
+attr unit %
+vector 115 SimpleEthernet.host1.eth[0].phyLayer.transmitter transmissionTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetDuration(transmissionEnded)
+attr title "transmission time"
+attr unit s
+vector 116 SimpleEthernet.host1.eth[0].phyLayer.transmitter flowTransmissionTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetDuration(demuxFlow(transmissionEnded))
+attr title "flow transmission time"
+attr unit s
+vector 117 SimpleEthernet.host1.eth[0].phyLayer.phyHeaderChecker incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 118 SimpleEthernet.host1.eth[0].phyLayer.phyHeaderChecker incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming data rate"
+attr unit bps
+vector 119 SimpleEthernet.host1.eth[0].phyLayer.phyHeaderChecker outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 120 SimpleEthernet.host1.eth[0].phyLayer.phyHeaderChecker outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing data rate"
+attr unit bps
+vector 121 SimpleEthernet.host1.eth[0].phyLayer.phyHeaderChecker droppedPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetDropped)
+attr title "dropped packet lengths"
+attr unit b
+vector 122 SimpleEthernet.host1.eth[0].phyLayer.phyHeaderChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 123 SimpleEthernet.host1.eth[0].phyLayer.phyHeaderChecker flowIncomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming packet lengths"
+attr unit b
+vector 124 SimpleEthernet.host1.eth[0].phyLayer.phyHeaderChecker flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 125 SimpleEthernet.host1.eth[0].phyLayer.phyHeaderChecker flowOutgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing packet lengths"
+attr unit b
+vector 126 SimpleEthernet.host1.eth[0].phyLayer.phyHeaderChecker flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 127 SimpleEthernet.host1.eth[0].phyLayer.phyHeaderChecker flowDroppedPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(demuxFlow(packetDropped))
+attr title "flow specific dropped packet lengths"
+attr unit b
+vector 128 SimpleEthernet.host1.eth[0].phyLayer.phyHeaderChecker flowDroppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(demuxFlow(packetDropped))
+attr title "flow specific dropped data rate"
+attr unit bps
+vector 129 SimpleEthernet.host1.eth[0].phyLayer.inboundEmitter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 130 SimpleEthernet.host1.eth[0].phyLayer.inboundEmitter incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming data rate"
+attr unit bps
+vector 131 SimpleEthernet.host1.eth[0].phyLayer.inboundEmitter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 132 SimpleEthernet.host1.eth[0].phyLayer.inboundEmitter outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing data rate"
+attr unit bps
+vector 133 SimpleEthernet.host1.eth[0].phyLayer.inboundEmitter flowIncomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming packet lengths"
+attr unit b
+vector 134 SimpleEthernet.host1.eth[0].phyLayer.inboundEmitter flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 135 SimpleEthernet.host1.eth[0].phyLayer.inboundEmitter flowOutgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing packet lengths"
+attr unit b
+vector 136 SimpleEthernet.host1.eth[0].phyLayer.inboundEmitter flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 137 SimpleEthernet.host1.eth[0].phyLayer.receiver throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(receptionEnded)
+attr title throughput
+attr unit bps
+vector 138 SimpleEthernet.host1.eth[0].phyLayer.receiver receptionTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetDuration(receptionEnded)
+attr title "reception time"
+attr unit s
+vector 139 SimpleEthernet.host1.eth[0].phyLayer.receiver flowReceptionTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetDuration(demuxFlow(receptionEnded))
+attr title "flow reception time"
+attr unit s
+vector 140 SimpleEthernet.host1.eth[0] packetDropInterfaceDown:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drops: interface down, packetBytes"
+vector 141 SimpleEthernet.host1.eth[0] packetDropNoCarrier:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsNoCarrier(packetDropped)
+attr title "packet drops: no carrier, packetBytes"
+vector 142 SimpleEthernet.host1.ipv4.ip packetDropAddressResolutionFailed:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, packetBytes"
+vector 143 SimpleEthernet.host1.ipv4.ip packetDropHopLimitReached:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, packetBytes"
+vector 144 SimpleEthernet.host1.ipv4.ip packetDropForwardingDisabled:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, packetBytes"
+vector 145 SimpleEthernet.host1.ipv4.ip packetDropNoInterfaceFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, packetBytes"
+vector 146 SimpleEthernet.host1.ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, packetBytes"
+vector 147 SimpleEthernet.host1.ipv4.ip packetDropUndefined:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, packetBytes"
+vector 148 SimpleEthernet.host1.udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSent
+attr title "packets sent, packetBytes"
+vector 149 SimpleEthernet.host1.udp packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceived
+attr title "packets received, packetBytes"
+vector 150 SimpleEthernet.host1.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 151 SimpleEthernet.host1.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 152 SimpleEthernet.host1.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 153 SimpleEthernet.host2.ethernet.macHeaderInserter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 154 SimpleEthernet.host2.ethernet.macHeaderInserter incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming data rate"
+attr unit bps
+vector 155 SimpleEthernet.host2.ethernet.macHeaderInserter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 156 SimpleEthernet.host2.ethernet.macHeaderInserter outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing data rate"
+attr unit bps
+vector 157 SimpleEthernet.host2.ethernet.macHeaderInserter flowIncomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming packet lengths"
+attr unit b
+vector 158 SimpleEthernet.host2.ethernet.macHeaderInserter flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 159 SimpleEthernet.host2.ethernet.macHeaderInserter flowOutgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing packet lengths"
+attr unit b
+vector 160 SimpleEthernet.host2.ethernet.macHeaderInserter flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 161 SimpleEthernet.host2.ethernet.paddingInserter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 162 SimpleEthernet.host2.ethernet.paddingInserter incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming data rate"
+attr unit bps
+vector 163 SimpleEthernet.host2.ethernet.paddingInserter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 164 SimpleEthernet.host2.ethernet.paddingInserter outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing data rate"
+attr unit bps
+vector 165 SimpleEthernet.host2.ethernet.paddingInserter flowIncomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming packet lengths"
+attr unit b
+vector 166 SimpleEthernet.host2.ethernet.paddingInserter flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 167 SimpleEthernet.host2.ethernet.paddingInserter flowOutgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing packet lengths"
+attr unit b
+vector 168 SimpleEthernet.host2.ethernet.paddingInserter flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 169 SimpleEthernet.host2.ethernet.fcsInserter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 170 SimpleEthernet.host2.ethernet.fcsInserter incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming data rate"
+attr unit bps
+vector 171 SimpleEthernet.host2.ethernet.fcsInserter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 172 SimpleEthernet.host2.ethernet.fcsInserter outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing data rate"
+attr unit bps
+vector 173 SimpleEthernet.host2.ethernet.fcsInserter flowIncomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming packet lengths"
+attr unit b
+vector 174 SimpleEthernet.host2.ethernet.fcsInserter flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 175 SimpleEthernet.host2.ethernet.fcsInserter flowOutgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing packet lengths"
+attr unit b
+vector 176 SimpleEthernet.host2.ethernet.fcsInserter flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 177 SimpleEthernet.host2.ethernet.macHeaderChecker incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 178 SimpleEthernet.host2.ethernet.macHeaderChecker incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming data rate"
+attr unit bps
+vector 179 SimpleEthernet.host2.ethernet.macHeaderChecker outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 180 SimpleEthernet.host2.ethernet.macHeaderChecker outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing data rate"
+attr unit bps
+vector 181 SimpleEthernet.host2.ethernet.macHeaderChecker droppedPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetDropped)
+attr title "dropped packet lengths"
+attr unit b
+vector 182 SimpleEthernet.host2.ethernet.macHeaderChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 183 SimpleEthernet.host2.ethernet.macHeaderChecker flowIncomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming packet lengths"
+attr unit b
+vector 184 SimpleEthernet.host2.ethernet.macHeaderChecker flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 185 SimpleEthernet.host2.ethernet.macHeaderChecker flowOutgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing packet lengths"
+attr unit b
+vector 186 SimpleEthernet.host2.ethernet.macHeaderChecker flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 187 SimpleEthernet.host2.ethernet.macHeaderChecker flowDroppedPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(demuxFlow(packetDropped))
+attr title "flow specific dropped packet lengths"
+attr unit b
+vector 188 SimpleEthernet.host2.ethernet.macHeaderChecker flowDroppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(demuxFlow(packetDropped))
+attr title "flow specific dropped data rate"
+attr unit bps
+vector 189 SimpleEthernet.host2.ethernet.fcsChecker incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 190 SimpleEthernet.host2.ethernet.fcsChecker incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming data rate"
+attr unit bps
+vector 191 SimpleEthernet.host2.ethernet.fcsChecker outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 192 SimpleEthernet.host2.ethernet.fcsChecker outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing data rate"
+attr unit bps
+vector 193 SimpleEthernet.host2.ethernet.fcsChecker droppedPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetDropped)
+attr title "dropped packet lengths"
+attr unit b
+vector 194 SimpleEthernet.host2.ethernet.fcsChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 195 SimpleEthernet.host2.ethernet.fcsChecker flowIncomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming packet lengths"
+attr unit b
+vector 196 SimpleEthernet.host2.ethernet.fcsChecker flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 197 SimpleEthernet.host2.ethernet.fcsChecker flowOutgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing packet lengths"
+attr unit b
+vector 198 SimpleEthernet.host2.ethernet.fcsChecker flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 199 SimpleEthernet.host2.ethernet.fcsChecker flowDroppedPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(demuxFlow(packetDropped))
+attr title "flow specific dropped packet lengths"
+attr unit b
+vector 200 SimpleEthernet.host2.ethernet.fcsChecker flowDroppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(demuxFlow(packetDropped))
+attr title "flow specific dropped data rate"
+attr unit bps
+vector 201 SimpleEthernet.host2.lo[0].lo rcvdPkFromHl:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, packetBytes"
+vector 202 SimpleEthernet.host2.lo[0].lo passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+vector 203 SimpleEthernet.host2.lo[0] packetDropInterfaceDown:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drops: interface down, packetBytes"
+vector 204 SimpleEthernet.host2.lo[0] packetDropNoCarrier:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsNoCarrier(packetDropped)
+attr title "packet drops: no carrier, packetBytes"
+vector 205 SimpleEthernet.host2.eth[0].macLayer.queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 206 SimpleEthernet.host2.eth[0].macLayer.queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 207 SimpleEthernet.host2.eth[0].macLayer.queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 208 SimpleEthernet.host2.eth[0].macLayer.queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 209 SimpleEthernet.host2.eth[0].macLayer.queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 210 SimpleEthernet.host2.eth[0].macLayer.queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 211 SimpleEthernet.host2.eth[0].macLayer.queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 212 SimpleEthernet.host2.eth[0].macLayer.queue droppedPacketLengthsQueueOverflow:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetDropReasonIsQueueOverflow(packetDropped))
+attr title "dropped packet lengths: queue overflow"
+attr unit b
+vector 213 SimpleEthernet.host2.eth[0].macLayer.queue flowQueueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(demuxFlow(packetPulled))
+attr title "flow queueing times"
+attr unit s
+vector 214 SimpleEthernet.host2.eth[0].macLayer.queue flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(flowPacketLength(demuxFlow(packetPushStarted)))
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 215 SimpleEthernet.host2.eth[0].macLayer.queue flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(flowPacketLength(demuxFlow(packetPulled)))
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 216 SimpleEthernet.host2.eth[0].macLayer.server incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "incoming packet lengths"
+attr unit b
+vector 217 SimpleEthernet.host2.eth[0].macLayer.server incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "incoming datarate"
+attr unit bps
+vector 218 SimpleEthernet.host2.eth[0].macLayer.server outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushed)
+attr title "outgoing packet lengths"
+attr unit b
+vector 219 SimpleEthernet.host2.eth[0].macLayer.server outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushed)
+attr title "outgoing datarate"
+attr unit bps
+vector 220 SimpleEthernet.host2.eth[0].macLayer.outboundEmitter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 221 SimpleEthernet.host2.eth[0].macLayer.outboundEmitter incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming data rate"
+attr unit bps
+vector 222 SimpleEthernet.host2.eth[0].macLayer.outboundEmitter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 223 SimpleEthernet.host2.eth[0].macLayer.outboundEmitter outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing data rate"
+attr unit bps
+vector 224 SimpleEthernet.host2.eth[0].macLayer.outboundEmitter flowIncomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming packet lengths"
+attr unit b
+vector 225 SimpleEthernet.host2.eth[0].macLayer.outboundEmitter flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 226 SimpleEthernet.host2.eth[0].macLayer.outboundEmitter flowOutgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing packet lengths"
+attr unit b
+vector 227 SimpleEthernet.host2.eth[0].macLayer.outboundEmitter flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 228 SimpleEthernet.host2.eth[0].macLayer.fcsChecker incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 229 SimpleEthernet.host2.eth[0].macLayer.fcsChecker incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming data rate"
+attr unit bps
+vector 230 SimpleEthernet.host2.eth[0].macLayer.fcsChecker outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 231 SimpleEthernet.host2.eth[0].macLayer.fcsChecker outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing data rate"
+attr unit bps
+vector 232 SimpleEthernet.host2.eth[0].macLayer.fcsChecker droppedPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetDropped)
+attr title "dropped packet lengths"
+attr unit b
+vector 233 SimpleEthernet.host2.eth[0].macLayer.fcsChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 234 SimpleEthernet.host2.eth[0].macLayer.fcsChecker flowIncomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming packet lengths"
+attr unit b
+vector 235 SimpleEthernet.host2.eth[0].macLayer.fcsChecker flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 236 SimpleEthernet.host2.eth[0].macLayer.fcsChecker flowOutgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing packet lengths"
+attr unit b
+vector 237 SimpleEthernet.host2.eth[0].macLayer.fcsChecker flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 238 SimpleEthernet.host2.eth[0].macLayer.fcsChecker flowDroppedPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(demuxFlow(packetDropped))
+attr title "flow specific dropped packet lengths"
+attr unit b
+vector 239 SimpleEthernet.host2.eth[0].macLayer.fcsChecker flowDroppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(demuxFlow(packetDropped))
+attr title "flow specific dropped data rate"
+attr unit bps
+vector 240 SimpleEthernet.host2.eth[0].macLayer.inboundEmitter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 241 SimpleEthernet.host2.eth[0].macLayer.inboundEmitter incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming data rate"
+attr unit bps
+vector 242 SimpleEthernet.host2.eth[0].macLayer.inboundEmitter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 243 SimpleEthernet.host2.eth[0].macLayer.inboundEmitter outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing data rate"
+attr unit bps
+vector 244 SimpleEthernet.host2.eth[0].macLayer.inboundEmitter flowIncomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming packet lengths"
+attr unit b
+vector 245 SimpleEthernet.host2.eth[0].macLayer.inboundEmitter flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 246 SimpleEthernet.host2.eth[0].macLayer.inboundEmitter flowOutgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing packet lengths"
+attr unit b
+vector 247 SimpleEthernet.host2.eth[0].macLayer.inboundEmitter flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 248 SimpleEthernet.host2.eth[0].phyLayer.phyHeaderInserter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 249 SimpleEthernet.host2.eth[0].phyLayer.phyHeaderInserter incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming data rate"
+attr unit bps
+vector 250 SimpleEthernet.host2.eth[0].phyLayer.phyHeaderInserter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 251 SimpleEthernet.host2.eth[0].phyLayer.phyHeaderInserter outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing data rate"
+attr unit bps
+vector 252 SimpleEthernet.host2.eth[0].phyLayer.phyHeaderInserter flowIncomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming packet lengths"
+attr unit b
+vector 253 SimpleEthernet.host2.eth[0].phyLayer.phyHeaderInserter flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 254 SimpleEthernet.host2.eth[0].phyLayer.phyHeaderInserter flowOutgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing packet lengths"
+attr unit b
+vector 255 SimpleEthernet.host2.eth[0].phyLayer.phyHeaderInserter flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 256 SimpleEthernet.host2.eth[0].phyLayer.interFrameGapInserter interpacketGap:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(interpacketGapStarted) - count(interpacketGapEnded)"
+attr title "interpacket gap state"
+attr type int
+vector 257 SimpleEthernet.host2.eth[0].phyLayer.outboundEmitter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 258 SimpleEthernet.host2.eth[0].phyLayer.outboundEmitter incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming data rate"
+attr unit bps
+vector 259 SimpleEthernet.host2.eth[0].phyLayer.outboundEmitter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 260 SimpleEthernet.host2.eth[0].phyLayer.outboundEmitter outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing data rate"
+attr unit bps
+vector 261 SimpleEthernet.host2.eth[0].phyLayer.outboundEmitter flowIncomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming packet lengths"
+attr unit b
+vector 262 SimpleEthernet.host2.eth[0].phyLayer.outboundEmitter flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 263 SimpleEthernet.host2.eth[0].phyLayer.outboundEmitter flowOutgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing packet lengths"
+attr unit b
+vector 264 SimpleEthernet.host2.eth[0].phyLayer.outboundEmitter flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 265 SimpleEthernet.host2.eth[0].phyLayer.transmitter transmitting:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(transmissionStarted) - count(transmissionEnded)"
+attr title "transmitting state"
+attr type int
+vector 266 SimpleEthernet.host2.eth[0].phyLayer.transmitter throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(transmissionEnded)
+attr title throughput
+attr unit bps
+vector 267 SimpleEthernet.host2.eth[0].phyLayer.transmitter utilization:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "100 * utilization(count(transmissionStarted) - count(transmissionEnded))"
+attr title utilization
+attr unit %
+vector 268 SimpleEthernet.host2.eth[0].phyLayer.transmitter transmissionTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetDuration(transmissionEnded)
+attr title "transmission time"
+attr unit s
+vector 269 SimpleEthernet.host2.eth[0].phyLayer.transmitter flowTransmissionTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetDuration(demuxFlow(transmissionEnded))
+attr title "flow transmission time"
+attr unit s
+vector 270 SimpleEthernet.host2.eth[0].phyLayer.phyHeaderChecker incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 271 SimpleEthernet.host2.eth[0].phyLayer.phyHeaderChecker incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming data rate"
+attr unit bps
+vector 272 SimpleEthernet.host2.eth[0].phyLayer.phyHeaderChecker outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 273 SimpleEthernet.host2.eth[0].phyLayer.phyHeaderChecker outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing data rate"
+attr unit bps
+vector 274 SimpleEthernet.host2.eth[0].phyLayer.phyHeaderChecker droppedPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetDropped)
+attr title "dropped packet lengths"
+attr unit b
+vector 275 SimpleEthernet.host2.eth[0].phyLayer.phyHeaderChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 276 SimpleEthernet.host2.eth[0].phyLayer.phyHeaderChecker flowIncomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming packet lengths"
+attr unit b
+vector 277 SimpleEthernet.host2.eth[0].phyLayer.phyHeaderChecker flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 278 SimpleEthernet.host2.eth[0].phyLayer.phyHeaderChecker flowOutgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing packet lengths"
+attr unit b
+vector 279 SimpleEthernet.host2.eth[0].phyLayer.phyHeaderChecker flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 280 SimpleEthernet.host2.eth[0].phyLayer.phyHeaderChecker flowDroppedPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(demuxFlow(packetDropped))
+attr title "flow specific dropped packet lengths"
+attr unit b
+vector 281 SimpleEthernet.host2.eth[0].phyLayer.phyHeaderChecker flowDroppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(demuxFlow(packetDropped))
+attr title "flow specific dropped data rate"
+attr unit bps
+vector 282 SimpleEthernet.host2.eth[0].phyLayer.inboundEmitter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 283 SimpleEthernet.host2.eth[0].phyLayer.inboundEmitter incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming data rate"
+attr unit bps
+vector 284 SimpleEthernet.host2.eth[0].phyLayer.inboundEmitter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 285 SimpleEthernet.host2.eth[0].phyLayer.inboundEmitter outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing data rate"
+attr unit bps
+vector 286 SimpleEthernet.host2.eth[0].phyLayer.inboundEmitter flowIncomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming packet lengths"
+attr unit b
+vector 287 SimpleEthernet.host2.eth[0].phyLayer.inboundEmitter flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 288 SimpleEthernet.host2.eth[0].phyLayer.inboundEmitter flowOutgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing packet lengths"
+attr unit b
+vector 289 SimpleEthernet.host2.eth[0].phyLayer.inboundEmitter flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 290 SimpleEthernet.host2.eth[0].phyLayer.receiver throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(receptionEnded)
+attr title throughput
+attr unit bps
+vector 291 SimpleEthernet.host2.eth[0].phyLayer.receiver receptionTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetDuration(receptionEnded)
+attr title "reception time"
+attr unit s
+vector 292 SimpleEthernet.host2.eth[0].phyLayer.receiver flowReceptionTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetDuration(demuxFlow(receptionEnded))
+attr title "flow reception time"
+attr unit s
+vector 293 SimpleEthernet.host2.eth[0] packetDropInterfaceDown:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drops: interface down, packetBytes"
+vector 294 SimpleEthernet.host2.eth[0] packetDropNoCarrier:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsNoCarrier(packetDropped)
+attr title "packet drops: no carrier, packetBytes"
+vector 295 SimpleEthernet.host2.ipv4.ip packetDropAddressResolutionFailed:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, packetBytes"
+vector 296 SimpleEthernet.host2.ipv4.ip packetDropHopLimitReached:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, packetBytes"
+vector 297 SimpleEthernet.host2.ipv4.ip packetDropForwardingDisabled:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, packetBytes"
+vector 298 SimpleEthernet.host2.ipv4.ip packetDropNoInterfaceFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, packetBytes"
+vector 299 SimpleEthernet.host2.ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, packetBytes"
+vector 300 SimpleEthernet.host2.ipv4.ip packetDropUndefined:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, packetBytes"
+vector 301 SimpleEthernet.host2.udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSent
+attr title "packets sent, packetBytes"
+vector 302 SimpleEthernet.host2.udp packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceived
+attr title "packets received, packetBytes"
+vector 303 SimpleEthernet.host2.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 304 SimpleEthernet.host2.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 305 SimpleEthernet.host2.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 306 SimpleEthernet.switch.bridging.directionReverser.reverser incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 307 SimpleEthernet.switch.bridging.directionReverser.reverser incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming data rate"
+attr unit bps
+vector 308 SimpleEthernet.switch.bridging.directionReverser.reverser outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 309 SimpleEthernet.switch.bridging.directionReverser.reverser outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing data rate"
+attr unit bps
+vector 310 SimpleEthernet.switch.bridging.directionReverser.reverser flowIncomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming packet lengths"
+attr unit b
+vector 311 SimpleEthernet.switch.bridging.directionReverser.reverser flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 312 SimpleEthernet.switch.bridging.directionReverser.reverser flowOutgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing packet lengths"
+attr unit b
+vector 313 SimpleEthernet.switch.bridging.directionReverser.reverser flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 314 SimpleEthernet.switch.bridging.directionReverser.join packetLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushed, packetPulled))"
+attr title "packet lengths"
+attr unit b
+vector 315 SimpleEthernet.switch.bridging.directionReverser.join dataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushed, packetPulled))"
+attr title "data rate"
+attr unit bps
+vector 316 SimpleEthernet.switch.bridging.interfaceRelay.learner incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 317 SimpleEthernet.switch.bridging.interfaceRelay.learner incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming data rate"
+attr unit bps
+vector 318 SimpleEthernet.switch.bridging.interfaceRelay.learner outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 319 SimpleEthernet.switch.bridging.interfaceRelay.learner outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing data rate"
+attr unit bps
+vector 320 SimpleEthernet.switch.bridging.interfaceRelay.learner flowIncomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming packet lengths"
+attr unit b
+vector 321 SimpleEthernet.switch.bridging.interfaceRelay.learner flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 322 SimpleEthernet.switch.bridging.interfaceRelay.learner flowOutgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing packet lengths"
+attr unit b
+vector 323 SimpleEthernet.switch.bridging.interfaceRelay.learner flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 324 SimpleEthernet.switch.bridging.interfaceRelay.selector packetDropped:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets dropped, packetBytes"
+vector 325 SimpleEthernet.switch.ethernet.macHeaderInserter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 326 SimpleEthernet.switch.ethernet.macHeaderInserter incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming data rate"
+attr unit bps
+vector 327 SimpleEthernet.switch.ethernet.macHeaderInserter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 328 SimpleEthernet.switch.ethernet.macHeaderInserter outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing data rate"
+attr unit bps
+vector 329 SimpleEthernet.switch.ethernet.macHeaderInserter flowIncomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming packet lengths"
+attr unit b
+vector 330 SimpleEthernet.switch.ethernet.macHeaderInserter flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 331 SimpleEthernet.switch.ethernet.macHeaderInserter flowOutgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing packet lengths"
+attr unit b
+vector 332 SimpleEthernet.switch.ethernet.macHeaderInserter flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 333 SimpleEthernet.switch.ethernet.paddingInserter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 334 SimpleEthernet.switch.ethernet.paddingInserter incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming data rate"
+attr unit bps
+vector 335 SimpleEthernet.switch.ethernet.paddingInserter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 336 SimpleEthernet.switch.ethernet.paddingInserter outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing data rate"
+attr unit bps
+vector 337 SimpleEthernet.switch.ethernet.paddingInserter flowIncomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming packet lengths"
+attr unit b
+vector 338 SimpleEthernet.switch.ethernet.paddingInserter flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 339 SimpleEthernet.switch.ethernet.paddingInserter flowOutgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing packet lengths"
+attr unit b
+vector 340 SimpleEthernet.switch.ethernet.paddingInserter flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 341 SimpleEthernet.switch.ethernet.fcsInserter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 342 SimpleEthernet.switch.ethernet.fcsInserter incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming data rate"
+attr unit bps
+vector 343 SimpleEthernet.switch.ethernet.fcsInserter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 344 SimpleEthernet.switch.ethernet.fcsInserter outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing data rate"
+attr unit bps
+vector 345 SimpleEthernet.switch.ethernet.fcsInserter flowIncomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming packet lengths"
+attr unit b
+vector 346 SimpleEthernet.switch.ethernet.fcsInserter flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 347 SimpleEthernet.switch.ethernet.fcsInserter flowOutgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing packet lengths"
+attr unit b
+vector 348 SimpleEthernet.switch.ethernet.fcsInserter flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 349 SimpleEthernet.switch.ethernet.macHeaderChecker incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 350 SimpleEthernet.switch.ethernet.macHeaderChecker incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming data rate"
+attr unit bps
+vector 351 SimpleEthernet.switch.ethernet.macHeaderChecker outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 352 SimpleEthernet.switch.ethernet.macHeaderChecker outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing data rate"
+attr unit bps
+vector 353 SimpleEthernet.switch.ethernet.macHeaderChecker droppedPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetDropped)
+attr title "dropped packet lengths"
+attr unit b
+vector 354 SimpleEthernet.switch.ethernet.macHeaderChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 355 SimpleEthernet.switch.ethernet.macHeaderChecker flowIncomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming packet lengths"
+attr unit b
+vector 356 SimpleEthernet.switch.ethernet.macHeaderChecker flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 357 SimpleEthernet.switch.ethernet.macHeaderChecker flowOutgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing packet lengths"
+attr unit b
+vector 358 SimpleEthernet.switch.ethernet.macHeaderChecker flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 359 SimpleEthernet.switch.ethernet.macHeaderChecker flowDroppedPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(demuxFlow(packetDropped))
+attr title "flow specific dropped packet lengths"
+attr unit b
+vector 360 SimpleEthernet.switch.ethernet.macHeaderChecker flowDroppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(demuxFlow(packetDropped))
+attr title "flow specific dropped data rate"
+attr unit bps
+vector 361 SimpleEthernet.switch.ethernet.fcsChecker incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 362 SimpleEthernet.switch.ethernet.fcsChecker incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming data rate"
+attr unit bps
+vector 363 SimpleEthernet.switch.ethernet.fcsChecker outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 364 SimpleEthernet.switch.ethernet.fcsChecker outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing data rate"
+attr unit bps
+vector 365 SimpleEthernet.switch.ethernet.fcsChecker droppedPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetDropped)
+attr title "dropped packet lengths"
+attr unit b
+vector 366 SimpleEthernet.switch.ethernet.fcsChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 367 SimpleEthernet.switch.ethernet.fcsChecker flowIncomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming packet lengths"
+attr unit b
+vector 368 SimpleEthernet.switch.ethernet.fcsChecker flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 369 SimpleEthernet.switch.ethernet.fcsChecker flowOutgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing packet lengths"
+attr unit b
+vector 370 SimpleEthernet.switch.ethernet.fcsChecker flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 371 SimpleEthernet.switch.ethernet.fcsChecker flowDroppedPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(demuxFlow(packetDropped))
+attr title "flow specific dropped packet lengths"
+attr unit b
+vector 372 SimpleEthernet.switch.ethernet.fcsChecker flowDroppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(demuxFlow(packetDropped))
+attr title "flow specific dropped data rate"
+attr unit bps
+vector 373 SimpleEthernet.switch.ieee8021q.qTagHeaderInserter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 374 SimpleEthernet.switch.ieee8021q.qTagHeaderInserter incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming data rate"
+attr unit bps
+vector 375 SimpleEthernet.switch.ieee8021q.qTagHeaderInserter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 376 SimpleEthernet.switch.ieee8021q.qTagHeaderInserter outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing data rate"
+attr unit bps
+vector 377 SimpleEthernet.switch.ieee8021q.qTagHeaderInserter flowIncomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming packet lengths"
+attr unit b
+vector 378 SimpleEthernet.switch.ieee8021q.qTagHeaderInserter flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 379 SimpleEthernet.switch.ieee8021q.qTagHeaderInserter flowOutgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing packet lengths"
+attr unit b
+vector 380 SimpleEthernet.switch.ieee8021q.qTagHeaderInserter flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 381 SimpleEthernet.switch.ieee8021q.qTagHeaderChecker incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 382 SimpleEthernet.switch.ieee8021q.qTagHeaderChecker incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming data rate"
+attr unit bps
+vector 383 SimpleEthernet.switch.ieee8021q.qTagHeaderChecker outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 384 SimpleEthernet.switch.ieee8021q.qTagHeaderChecker outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing data rate"
+attr unit bps
+vector 385 SimpleEthernet.switch.ieee8021q.qTagHeaderChecker droppedPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetDropped)
+attr title "dropped packet lengths"
+attr unit b
+vector 386 SimpleEthernet.switch.ieee8021q.qTagHeaderChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 387 SimpleEthernet.switch.ieee8021q.qTagHeaderChecker flowIncomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming packet lengths"
+attr unit b
+vector 388 SimpleEthernet.switch.ieee8021q.qTagHeaderChecker flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 389 SimpleEthernet.switch.ieee8021q.qTagHeaderChecker flowOutgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing packet lengths"
+attr unit b
+vector 390 SimpleEthernet.switch.ieee8021q.qTagHeaderChecker flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 391 SimpleEthernet.switch.ieee8021q.qTagHeaderChecker flowDroppedPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(demuxFlow(packetDropped))
+attr title "flow specific dropped packet lengths"
+attr unit b
+vector 392 SimpleEthernet.switch.ieee8021q.qTagHeaderChecker flowDroppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(demuxFlow(packetDropped))
+attr title "flow specific dropped data rate"
+attr unit bps
+vector 393 SimpleEthernet.switch.ieee8021r.rTagHeaderInserter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 394 SimpleEthernet.switch.ieee8021r.rTagHeaderInserter incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming data rate"
+attr unit bps
+vector 395 SimpleEthernet.switch.ieee8021r.rTagHeaderInserter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 396 SimpleEthernet.switch.ieee8021r.rTagHeaderInserter outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing data rate"
+attr unit bps
+vector 397 SimpleEthernet.switch.ieee8021r.rTagHeaderInserter flowIncomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming packet lengths"
+attr unit b
+vector 398 SimpleEthernet.switch.ieee8021r.rTagHeaderInserter flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 399 SimpleEthernet.switch.ieee8021r.rTagHeaderInserter flowOutgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing packet lengths"
+attr unit b
+vector 400 SimpleEthernet.switch.ieee8021r.rTagHeaderInserter flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 401 SimpleEthernet.switch.ieee8021r.rTagHeaderChecker incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 402 SimpleEthernet.switch.ieee8021r.rTagHeaderChecker incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming data rate"
+attr unit bps
+vector 403 SimpleEthernet.switch.ieee8021r.rTagHeaderChecker outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 404 SimpleEthernet.switch.ieee8021r.rTagHeaderChecker outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing data rate"
+attr unit bps
+vector 405 SimpleEthernet.switch.ieee8021r.rTagHeaderChecker droppedPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetDropped)
+attr title "dropped packet lengths"
+attr unit b
+vector 406 SimpleEthernet.switch.ieee8021r.rTagHeaderChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 407 SimpleEthernet.switch.ieee8021r.rTagHeaderChecker flowIncomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming packet lengths"
+attr unit b
+vector 408 SimpleEthernet.switch.ieee8021r.rTagHeaderChecker flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 409 SimpleEthernet.switch.ieee8021r.rTagHeaderChecker flowOutgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing packet lengths"
+attr unit b
+vector 410 SimpleEthernet.switch.ieee8021r.rTagHeaderChecker flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 411 SimpleEthernet.switch.ieee8021r.rTagHeaderChecker flowDroppedPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(demuxFlow(packetDropped))
+attr title "flow specific dropped packet lengths"
+attr unit b
+vector 412 SimpleEthernet.switch.ieee8021r.rTagHeaderChecker flowDroppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(demuxFlow(packetDropped))
+attr title "flow specific dropped data rate"
+attr unit bps
+vector 413 SimpleEthernet.switch.eth[0].macLayer.queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 414 SimpleEthernet.switch.eth[0].macLayer.queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 415 SimpleEthernet.switch.eth[0].macLayer.queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 416 SimpleEthernet.switch.eth[0].macLayer.queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 417 SimpleEthernet.switch.eth[0].macLayer.queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 418 SimpleEthernet.switch.eth[0].macLayer.queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 419 SimpleEthernet.switch.eth[0].macLayer.queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 420 SimpleEthernet.switch.eth[0].macLayer.queue droppedPacketLengthsQueueOverflow:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetDropReasonIsQueueOverflow(packetDropped))
+attr title "dropped packet lengths: queue overflow"
+attr unit b
+vector 421 SimpleEthernet.switch.eth[0].macLayer.queue flowQueueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(demuxFlow(packetPulled))
+attr title "flow queueing times"
+attr unit s
+vector 422 SimpleEthernet.switch.eth[0].macLayer.queue flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(flowPacketLength(demuxFlow(packetPushStarted)))
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 423 SimpleEthernet.switch.eth[0].macLayer.queue flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(flowPacketLength(demuxFlow(packetPulled)))
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 424 SimpleEthernet.switch.eth[0].macLayer.server incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "incoming packet lengths"
+attr unit b
+vector 425 SimpleEthernet.switch.eth[0].macLayer.server incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "incoming datarate"
+attr unit bps
+vector 426 SimpleEthernet.switch.eth[0].macLayer.server outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushed)
+attr title "outgoing packet lengths"
+attr unit b
+vector 427 SimpleEthernet.switch.eth[0].macLayer.server outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushed)
+attr title "outgoing datarate"
+attr unit bps
+vector 428 SimpleEthernet.switch.eth[0].macLayer.outboundEmitter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 429 SimpleEthernet.switch.eth[0].macLayer.outboundEmitter incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming data rate"
+attr unit bps
+vector 430 SimpleEthernet.switch.eth[0].macLayer.outboundEmitter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 431 SimpleEthernet.switch.eth[0].macLayer.outboundEmitter outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing data rate"
+attr unit bps
+vector 432 SimpleEthernet.switch.eth[0].macLayer.outboundEmitter flowIncomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming packet lengths"
+attr unit b
+vector 433 SimpleEthernet.switch.eth[0].macLayer.outboundEmitter flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 434 SimpleEthernet.switch.eth[0].macLayer.outboundEmitter flowOutgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing packet lengths"
+attr unit b
+vector 435 SimpleEthernet.switch.eth[0].macLayer.outboundEmitter flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 436 SimpleEthernet.switch.eth[0].macLayer.fcsChecker incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 437 SimpleEthernet.switch.eth[0].macLayer.fcsChecker incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming data rate"
+attr unit bps
+vector 438 SimpleEthernet.switch.eth[0].macLayer.fcsChecker outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 439 SimpleEthernet.switch.eth[0].macLayer.fcsChecker outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing data rate"
+attr unit bps
+vector 440 SimpleEthernet.switch.eth[0].macLayer.fcsChecker droppedPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetDropped)
+attr title "dropped packet lengths"
+attr unit b
+vector 441 SimpleEthernet.switch.eth[0].macLayer.fcsChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 442 SimpleEthernet.switch.eth[0].macLayer.fcsChecker flowIncomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming packet lengths"
+attr unit b
+vector 443 SimpleEthernet.switch.eth[0].macLayer.fcsChecker flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 444 SimpleEthernet.switch.eth[0].macLayer.fcsChecker flowOutgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing packet lengths"
+attr unit b
+vector 445 SimpleEthernet.switch.eth[0].macLayer.fcsChecker flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 446 SimpleEthernet.switch.eth[0].macLayer.fcsChecker flowDroppedPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(demuxFlow(packetDropped))
+attr title "flow specific dropped packet lengths"
+attr unit b
+vector 447 SimpleEthernet.switch.eth[0].macLayer.fcsChecker flowDroppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(demuxFlow(packetDropped))
+attr title "flow specific dropped data rate"
+attr unit bps
+vector 448 SimpleEthernet.switch.eth[0].macLayer.inboundEmitter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 449 SimpleEthernet.switch.eth[0].macLayer.inboundEmitter incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming data rate"
+attr unit bps
+vector 450 SimpleEthernet.switch.eth[0].macLayer.inboundEmitter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 451 SimpleEthernet.switch.eth[0].macLayer.inboundEmitter outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing data rate"
+attr unit bps
+vector 452 SimpleEthernet.switch.eth[0].macLayer.inboundEmitter flowIncomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming packet lengths"
+attr unit b
+vector 453 SimpleEthernet.switch.eth[0].macLayer.inboundEmitter flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 454 SimpleEthernet.switch.eth[0].macLayer.inboundEmitter flowOutgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing packet lengths"
+attr unit b
+vector 455 SimpleEthernet.switch.eth[0].macLayer.inboundEmitter flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 456 SimpleEthernet.switch.eth[0].phyLayer.phyHeaderInserter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 457 SimpleEthernet.switch.eth[0].phyLayer.phyHeaderInserter incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming data rate"
+attr unit bps
+vector 458 SimpleEthernet.switch.eth[0].phyLayer.phyHeaderInserter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 459 SimpleEthernet.switch.eth[0].phyLayer.phyHeaderInserter outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing data rate"
+attr unit bps
+vector 460 SimpleEthernet.switch.eth[0].phyLayer.phyHeaderInserter flowIncomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming packet lengths"
+attr unit b
+vector 461 SimpleEthernet.switch.eth[0].phyLayer.phyHeaderInserter flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 462 SimpleEthernet.switch.eth[0].phyLayer.phyHeaderInserter flowOutgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing packet lengths"
+attr unit b
+vector 463 SimpleEthernet.switch.eth[0].phyLayer.phyHeaderInserter flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 464 SimpleEthernet.switch.eth[0].phyLayer.interFrameGapInserter interpacketGap:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(interpacketGapStarted) - count(interpacketGapEnded)"
+attr title "interpacket gap state"
+attr type int
+vector 465 SimpleEthernet.switch.eth[0].phyLayer.outboundEmitter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 466 SimpleEthernet.switch.eth[0].phyLayer.outboundEmitter incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming data rate"
+attr unit bps
+vector 467 SimpleEthernet.switch.eth[0].phyLayer.outboundEmitter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 468 SimpleEthernet.switch.eth[0].phyLayer.outboundEmitter outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing data rate"
+attr unit bps
+vector 469 SimpleEthernet.switch.eth[0].phyLayer.outboundEmitter flowIncomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming packet lengths"
+attr unit b
+vector 470 SimpleEthernet.switch.eth[0].phyLayer.outboundEmitter flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 471 SimpleEthernet.switch.eth[0].phyLayer.outboundEmitter flowOutgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing packet lengths"
+attr unit b
+vector 472 SimpleEthernet.switch.eth[0].phyLayer.outboundEmitter flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 473 SimpleEthernet.switch.eth[0].phyLayer.transmitter transmitting:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(transmissionStarted) - count(transmissionEnded)"
+attr title "transmitting state"
+attr type int
+vector 474 SimpleEthernet.switch.eth[0].phyLayer.transmitter throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(transmissionEnded)
+attr title throughput
+attr unit bps
+vector 475 SimpleEthernet.switch.eth[0].phyLayer.transmitter utilization:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "100 * utilization(count(transmissionStarted) - count(transmissionEnded))"
+attr title utilization
+attr unit %
+vector 476 SimpleEthernet.switch.eth[0].phyLayer.transmitter transmissionTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetDuration(transmissionEnded)
+attr title "transmission time"
+attr unit s
+vector 477 SimpleEthernet.switch.eth[0].phyLayer.transmitter flowTransmissionTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetDuration(demuxFlow(transmissionEnded))
+attr title "flow transmission time"
+attr unit s
+vector 478 SimpleEthernet.switch.eth[0].phyLayer.phyHeaderChecker incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 479 SimpleEthernet.switch.eth[0].phyLayer.phyHeaderChecker incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming data rate"
+attr unit bps
+vector 480 SimpleEthernet.switch.eth[0].phyLayer.phyHeaderChecker outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 481 SimpleEthernet.switch.eth[0].phyLayer.phyHeaderChecker outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing data rate"
+attr unit bps
+vector 482 SimpleEthernet.switch.eth[0].phyLayer.phyHeaderChecker droppedPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetDropped)
+attr title "dropped packet lengths"
+attr unit b
+vector 483 SimpleEthernet.switch.eth[0].phyLayer.phyHeaderChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 484 SimpleEthernet.switch.eth[0].phyLayer.phyHeaderChecker flowIncomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming packet lengths"
+attr unit b
+vector 485 SimpleEthernet.switch.eth[0].phyLayer.phyHeaderChecker flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 486 SimpleEthernet.switch.eth[0].phyLayer.phyHeaderChecker flowOutgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing packet lengths"
+attr unit b
+vector 487 SimpleEthernet.switch.eth[0].phyLayer.phyHeaderChecker flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 488 SimpleEthernet.switch.eth[0].phyLayer.phyHeaderChecker flowDroppedPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(demuxFlow(packetDropped))
+attr title "flow specific dropped packet lengths"
+attr unit b
+vector 489 SimpleEthernet.switch.eth[0].phyLayer.phyHeaderChecker flowDroppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(demuxFlow(packetDropped))
+attr title "flow specific dropped data rate"
+attr unit bps
+vector 490 SimpleEthernet.switch.eth[0].phyLayer.inboundEmitter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 491 SimpleEthernet.switch.eth[0].phyLayer.inboundEmitter incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming data rate"
+attr unit bps
+vector 492 SimpleEthernet.switch.eth[0].phyLayer.inboundEmitter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 493 SimpleEthernet.switch.eth[0].phyLayer.inboundEmitter outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing data rate"
+attr unit bps
+vector 494 SimpleEthernet.switch.eth[0].phyLayer.inboundEmitter flowIncomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming packet lengths"
+attr unit b
+vector 495 SimpleEthernet.switch.eth[0].phyLayer.inboundEmitter flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 496 SimpleEthernet.switch.eth[0].phyLayer.inboundEmitter flowOutgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing packet lengths"
+attr unit b
+vector 497 SimpleEthernet.switch.eth[0].phyLayer.inboundEmitter flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 498 SimpleEthernet.switch.eth[0].phyLayer.receiver throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(receptionEnded)
+attr title throughput
+attr unit bps
+vector 499 SimpleEthernet.switch.eth[0].phyLayer.receiver receptionTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetDuration(receptionEnded)
+attr title "reception time"
+attr unit s
+vector 500 SimpleEthernet.switch.eth[0].phyLayer.receiver flowReceptionTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetDuration(demuxFlow(receptionEnded))
+attr title "flow reception time"
+attr unit s
+vector 501 SimpleEthernet.switch.eth[0] packetDropInterfaceDown:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drops: interface down, packetBytes"
+vector 502 SimpleEthernet.switch.eth[0] packetDropNoCarrier:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsNoCarrier(packetDropped)
+attr title "packet drops: no carrier, packetBytes"
+vector 503 SimpleEthernet.switch.eth[1].macLayer.queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 504 SimpleEthernet.switch.eth[1].macLayer.queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 505 SimpleEthernet.switch.eth[1].macLayer.queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 506 SimpleEthernet.switch.eth[1].macLayer.queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 507 SimpleEthernet.switch.eth[1].macLayer.queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 508 SimpleEthernet.switch.eth[1].macLayer.queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 509 SimpleEthernet.switch.eth[1].macLayer.queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 510 SimpleEthernet.switch.eth[1].macLayer.queue droppedPacketLengthsQueueOverflow:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetDropReasonIsQueueOverflow(packetDropped))
+attr title "dropped packet lengths: queue overflow"
+attr unit b
+vector 511 SimpleEthernet.switch.eth[1].macLayer.queue flowQueueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(demuxFlow(packetPulled))
+attr title "flow queueing times"
+attr unit s
+vector 512 SimpleEthernet.switch.eth[1].macLayer.queue flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(flowPacketLength(demuxFlow(packetPushStarted)))
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 513 SimpleEthernet.switch.eth[1].macLayer.queue flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(flowPacketLength(demuxFlow(packetPulled)))
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 514 SimpleEthernet.switch.eth[1].macLayer.server incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "incoming packet lengths"
+attr unit b
+vector 515 SimpleEthernet.switch.eth[1].macLayer.server incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "incoming datarate"
+attr unit bps
+vector 516 SimpleEthernet.switch.eth[1].macLayer.server outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushed)
+attr title "outgoing packet lengths"
+attr unit b
+vector 517 SimpleEthernet.switch.eth[1].macLayer.server outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushed)
+attr title "outgoing datarate"
+attr unit bps
+vector 518 SimpleEthernet.switch.eth[1].macLayer.outboundEmitter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 519 SimpleEthernet.switch.eth[1].macLayer.outboundEmitter incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming data rate"
+attr unit bps
+vector 520 SimpleEthernet.switch.eth[1].macLayer.outboundEmitter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 521 SimpleEthernet.switch.eth[1].macLayer.outboundEmitter outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing data rate"
+attr unit bps
+vector 522 SimpleEthernet.switch.eth[1].macLayer.outboundEmitter flowIncomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming packet lengths"
+attr unit b
+vector 523 SimpleEthernet.switch.eth[1].macLayer.outboundEmitter flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 524 SimpleEthernet.switch.eth[1].macLayer.outboundEmitter flowOutgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing packet lengths"
+attr unit b
+vector 525 SimpleEthernet.switch.eth[1].macLayer.outboundEmitter flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 526 SimpleEthernet.switch.eth[1].macLayer.fcsChecker incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 527 SimpleEthernet.switch.eth[1].macLayer.fcsChecker incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming data rate"
+attr unit bps
+vector 528 SimpleEthernet.switch.eth[1].macLayer.fcsChecker outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 529 SimpleEthernet.switch.eth[1].macLayer.fcsChecker outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing data rate"
+attr unit bps
+vector 530 SimpleEthernet.switch.eth[1].macLayer.fcsChecker droppedPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetDropped)
+attr title "dropped packet lengths"
+attr unit b
+vector 531 SimpleEthernet.switch.eth[1].macLayer.fcsChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 532 SimpleEthernet.switch.eth[1].macLayer.fcsChecker flowIncomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming packet lengths"
+attr unit b
+vector 533 SimpleEthernet.switch.eth[1].macLayer.fcsChecker flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 534 SimpleEthernet.switch.eth[1].macLayer.fcsChecker flowOutgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing packet lengths"
+attr unit b
+vector 535 SimpleEthernet.switch.eth[1].macLayer.fcsChecker flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 536 SimpleEthernet.switch.eth[1].macLayer.fcsChecker flowDroppedPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(demuxFlow(packetDropped))
+attr title "flow specific dropped packet lengths"
+attr unit b
+vector 537 SimpleEthernet.switch.eth[1].macLayer.fcsChecker flowDroppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(demuxFlow(packetDropped))
+attr title "flow specific dropped data rate"
+attr unit bps
+vector 538 SimpleEthernet.switch.eth[1].macLayer.inboundEmitter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 539 SimpleEthernet.switch.eth[1].macLayer.inboundEmitter incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming data rate"
+attr unit bps
+vector 540 SimpleEthernet.switch.eth[1].macLayer.inboundEmitter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 541 SimpleEthernet.switch.eth[1].macLayer.inboundEmitter outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing data rate"
+attr unit bps
+vector 542 SimpleEthernet.switch.eth[1].macLayer.inboundEmitter flowIncomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming packet lengths"
+attr unit b
+vector 543 SimpleEthernet.switch.eth[1].macLayer.inboundEmitter flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 544 SimpleEthernet.switch.eth[1].macLayer.inboundEmitter flowOutgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing packet lengths"
+attr unit b
+vector 545 SimpleEthernet.switch.eth[1].macLayer.inboundEmitter flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 546 SimpleEthernet.switch.eth[1].phyLayer.phyHeaderInserter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 547 SimpleEthernet.switch.eth[1].phyLayer.phyHeaderInserter incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming data rate"
+attr unit bps
+vector 548 SimpleEthernet.switch.eth[1].phyLayer.phyHeaderInserter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 549 SimpleEthernet.switch.eth[1].phyLayer.phyHeaderInserter outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing data rate"
+attr unit bps
+vector 550 SimpleEthernet.switch.eth[1].phyLayer.phyHeaderInserter flowIncomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming packet lengths"
+attr unit b
+vector 551 SimpleEthernet.switch.eth[1].phyLayer.phyHeaderInserter flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 552 SimpleEthernet.switch.eth[1].phyLayer.phyHeaderInserter flowOutgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing packet lengths"
+attr unit b
+vector 553 SimpleEthernet.switch.eth[1].phyLayer.phyHeaderInserter flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 554 SimpleEthernet.switch.eth[1].phyLayer.interFrameGapInserter interpacketGap:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(interpacketGapStarted) - count(interpacketGapEnded)"
+attr title "interpacket gap state"
+attr type int
+vector 555 SimpleEthernet.switch.eth[1].phyLayer.outboundEmitter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 556 SimpleEthernet.switch.eth[1].phyLayer.outboundEmitter incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming data rate"
+attr unit bps
+vector 557 SimpleEthernet.switch.eth[1].phyLayer.outboundEmitter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 558 SimpleEthernet.switch.eth[1].phyLayer.outboundEmitter outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing data rate"
+attr unit bps
+vector 559 SimpleEthernet.switch.eth[1].phyLayer.outboundEmitter flowIncomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming packet lengths"
+attr unit b
+vector 560 SimpleEthernet.switch.eth[1].phyLayer.outboundEmitter flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 561 SimpleEthernet.switch.eth[1].phyLayer.outboundEmitter flowOutgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing packet lengths"
+attr unit b
+vector 562 SimpleEthernet.switch.eth[1].phyLayer.outboundEmitter flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 563 SimpleEthernet.switch.eth[1].phyLayer.transmitter transmitting:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(transmissionStarted) - count(transmissionEnded)"
+attr title "transmitting state"
+attr type int
+vector 564 SimpleEthernet.switch.eth[1].phyLayer.transmitter throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(transmissionEnded)
+attr title throughput
+attr unit bps
+vector 565 SimpleEthernet.switch.eth[1].phyLayer.transmitter utilization:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "100 * utilization(count(transmissionStarted) - count(transmissionEnded))"
+attr title utilization
+attr unit %
+vector 566 SimpleEthernet.switch.eth[1].phyLayer.transmitter transmissionTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetDuration(transmissionEnded)
+attr title "transmission time"
+attr unit s
+vector 567 SimpleEthernet.switch.eth[1].phyLayer.transmitter flowTransmissionTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetDuration(demuxFlow(transmissionEnded))
+attr title "flow transmission time"
+attr unit s
+vector 568 SimpleEthernet.switch.eth[1].phyLayer.phyHeaderChecker incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 569 SimpleEthernet.switch.eth[1].phyLayer.phyHeaderChecker incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming data rate"
+attr unit bps
+vector 570 SimpleEthernet.switch.eth[1].phyLayer.phyHeaderChecker outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 571 SimpleEthernet.switch.eth[1].phyLayer.phyHeaderChecker outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing data rate"
+attr unit bps
+vector 572 SimpleEthernet.switch.eth[1].phyLayer.phyHeaderChecker droppedPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetDropped)
+attr title "dropped packet lengths"
+attr unit b
+vector 573 SimpleEthernet.switch.eth[1].phyLayer.phyHeaderChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 574 SimpleEthernet.switch.eth[1].phyLayer.phyHeaderChecker flowIncomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming packet lengths"
+attr unit b
+vector 575 SimpleEthernet.switch.eth[1].phyLayer.phyHeaderChecker flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 576 SimpleEthernet.switch.eth[1].phyLayer.phyHeaderChecker flowOutgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing packet lengths"
+attr unit b
+vector 577 SimpleEthernet.switch.eth[1].phyLayer.phyHeaderChecker flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 578 SimpleEthernet.switch.eth[1].phyLayer.phyHeaderChecker flowDroppedPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(demuxFlow(packetDropped))
+attr title "flow specific dropped packet lengths"
+attr unit b
+vector 579 SimpleEthernet.switch.eth[1].phyLayer.phyHeaderChecker flowDroppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(demuxFlow(packetDropped))
+attr title "flow specific dropped data rate"
+attr unit bps
+vector 580 SimpleEthernet.switch.eth[1].phyLayer.inboundEmitter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 581 SimpleEthernet.switch.eth[1].phyLayer.inboundEmitter incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming data rate"
+attr unit bps
+vector 582 SimpleEthernet.switch.eth[1].phyLayer.inboundEmitter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 583 SimpleEthernet.switch.eth[1].phyLayer.inboundEmitter outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing data rate"
+attr unit bps
+vector 584 SimpleEthernet.switch.eth[1].phyLayer.inboundEmitter flowIncomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming packet lengths"
+attr unit b
+vector 585 SimpleEthernet.switch.eth[1].phyLayer.inboundEmitter flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedIn, packetPulledIn)))"
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 586 SimpleEthernet.switch.eth[1].phyLayer.inboundEmitter flowOutgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing packet lengths"
+attr unit b
+vector 587 SimpleEthernet.switch.eth[1].phyLayer.inboundEmitter flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "throughput(demuxFlow(merge(packetPushedOut, packetPulledOut)))"
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 588 SimpleEthernet.switch.eth[1].phyLayer.receiver throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(receptionEnded)
+attr title throughput
+attr unit bps
+vector 589 SimpleEthernet.switch.eth[1].phyLayer.receiver receptionTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetDuration(receptionEnded)
+attr title "reception time"
+attr unit s
+vector 590 SimpleEthernet.switch.eth[1].phyLayer.receiver flowReceptionTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetDuration(demuxFlow(receptionEnded))
+attr title "flow reception time"
+attr unit s
+vector 591 SimpleEthernet.switch.eth[1] packetDropInterfaceDown:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drops: interface down, packetBytes"
+vector 592 SimpleEthernet.switch.eth[1] packetDropNoCarrier:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsNoCarrier(packetDropped)
+attr title "packet drops: no carrier, packetBytes"
+29	159373 3441 5 5 0.1 30 300 0 0 0 0
+41	162814 3441 5 5 0.1 30 300 0 0 0 0
+52	166255 45 0 0 0 0 5 0 0 0 0
+53	166300 45 0 0 0 0 5 0 0 0 0
+56	166345 3441 5 5 0.1 30 300 0 0 0 0
+58	169786 3441 5 5 0.1 30 300 0 0 0 0
+64	173227 3441 5 5 0.1 30 300 0 0 0 0
+66	176668 3441 5 5 0.1 30 300 0 0 0 0
+80	180109 3441 5 5 0.1 30 300 0 0 0 0
+103	183550 20 0 0 0 0 2 0 0 0 0
+112	183570 20 0 0 0 0 2 0 0 0 0
+113	183590 3741 5 5 0.1 30 300 0 0 0 0
+122	187331 3741 5 5 0.1 30 300 0 0 0 0
+137	191072 3741 5 5 0.1 30 300 0 0 0 0
+150	194813 10 0 0 0 0 1 0 0 0 0
+151	194823 10 0 0 0 0 1 0 0 0 0
+152	194833 10 0 0 0 0 1 0 0 0 0
+182	194843 3741 5 5 0.1 30 300 0 0 0 0
+194	198584 3741 5 5 0.1 30 300 0 0 0 0
+205	202325 50 0 0 0 0 5 0 0 0 0
+206	202375 50 0 0 0 0 5 0 0 0 0
+209	202425 3741 5 5 0.1 30 300 0 0 0 0
+211	206166 3741 5 5 0.1 30 300 0 0 0 0
+217	209907 3741 5 5 0.1 30 300 0 0 0 0
+219	213648 3741 5 5 0.1 30 300 0 0 0 0
+233	217389 3741 5 5 0.1 30 300 0 0 0 0
+256	221130 20 0 0 0 0 2 0 0 0 0
+265	221150 20 0 0 0 0 2 0 0 0 0
+266	221170 3741 5 5 0.1 30 300 0 0 0 0
+275	224911 3741 5 5 0.1 30 300 0 0 0 0
+290	228652 3741 5 5 0.1 30 300 0 0 0 0
+303	232393 10 0 0 0 0 1 0 0 0 0
+304	232403 10 0 0 0 0 1 0 0 0 0
+305	232413 10 0 0 0 0 1 0 0 0 0
+354	232423 3741 5 5 0.1 30 300 0 0 0 0
+366	236164 3741 5 5 0.1 30 300 0 0 0 0
+386	239905 3741 5 5 0.1 30 300 0 0 0 0
+406	243646 3741 5 5 0.1 30 300 0 0 0 0
+413	247387 50 0 0 0 0 5 0 0 0 0
+414	247437 50 0 0 0 0 5 0 0 0 0
+417	247487 3741 5 5 0.1 30 300 0 0 0 0
+419	251228 3741 5 5 0.1 30 300 0 0 0 0
+425	254969 3741 5 5 0.1 30 300 0 0 0 0
+427	258710 3741 5 5 0.1 30 300 0 0 0 0
+441	262451 3741 5 5 0.1 30 300 0 0 0 0
+464	266192 20 0 0 0 0 2 0 0 0 0
+473	266212 20 0 0 0 0 2 0 0 0 0
+474	266232 3741 5 5 0.1 30 300 0 0 0 0
+483	269973 3741 5 5 0.1 30 300 0 0 0 0
+498	273714 3741 5 5 0.1 30 300 0 0 0 0
+503	277455 50 0 0 0 0 5 0 0 0 0
+504	277505 50 0 0 0 0 5 0 0 0 0
+507	277555 3741 5 5 0.1 30 300 0 0 0 0
+509	281296 3741 5 5 0.1 30 300 0 0 0 0
+515	285037 3741 5 5 0.1 30 300 0 0 0 0
+517	288778 3741 5 5 0.1 30 300 0 0 0 0
+531	292519 3741 5 5 0.1 30 300 0 0 0 0
+554	296260 20 0 0 0 0 2 0 0 0 0
+563	296280 20 0 0 0 0 2 0 0 0 0
+564	296300 3741 5 5 0.1 30 300 0 0 0 0
+573	300041 3741 5 5 0.1 30 300 0 0 0 0
+588	303782 3741 5 5 0.1 30 300 0 0 0 0
+
